@@ -30,9 +30,12 @@
         "koa-static": "^2.1.0",
         "koa-swig": "^2.2.1",
         "koa-views": "next",
+        "md5": "^2.2.1",
         "mysql": "^2.13.0",
         "sequelize": "^3.30.2",
-        "vue": "^2.1.10"
+        "url-loader": "^0.5.7",
+        "vue": "^2.1.10",
+        "vue-router": "^2.2.1"
     },
     "devDependencies": {
         "babel-core": "^6.23.1",

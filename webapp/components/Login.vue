@@ -1,10 +1,10 @@
 <template>
   <el-row class="content">
     <el-col :xs="24" :sm="{span: 6,offset: 9}">
-      <p class="title">
-       欢迎登录 
-      </p>
       <el-row>
+       <span class="title">
+       欢迎登录 
+      </span>
         <el-input 
           v-model="name" 
           placeholder="账号"
@@ -21,6 +21,7 @@
   </el-row>
 </template>
 <script>
+import md5 from 'md5';
 	export default {
 		data(){
 			return {
@@ -32,12 +33,13 @@
       loginTodo(){
         var obj = {
           name:this.name,
-          password:this.password
+          password:md5(this.password)
         }
         this.$http.post('/user',obj).then((res)=>{
-          console.log(res);
           if(res.data.success){//登陆成功
+            //将token存入sessionStorage
             sessionStorage.setItem("qiukai-token",res.data.token);
+            this.$router.push('/toBlogList');
             this.$message({
               type: 'success',
               message: '登陆成功'
@@ -53,8 +55,7 @@
               type: 'error',
               message: '请求错误,稍后重试'
             },2000);
-          }
-        });
+          })
       }
     }
 	}

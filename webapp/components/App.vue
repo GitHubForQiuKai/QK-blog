@@ -1,15 +1,16 @@
 <template>
 	<div id="app">
-		<login></login>
+		<header-nav></header-nav>
+		<router-view></router-view>
 	</div>
 </template>
 
 <script>
-import login from "./Login.vue";
-	export default {
-		name:"app",
-		components:{login},
-	}
+import HeaderNav from "./common/HeaderNav.vue"
+export default {
+  name:"app",
+  components:{HeaderNav},
+}
 </script>
 
 <style>

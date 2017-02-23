@@ -9,7 +9,11 @@ const views = require('koa-views');
 const app = new  Koa();
 const router = new Router();
 //设置html
-app.use(views(config.viewDir));
+app.use(views(config.viewDir),{
+	map:{
+		html:"underscore"
+	}
+});
 app.use(bodyParser());//post请求解析器
 app.use(server(config.staticDir));//静态资源文件
 // app.use(logger);

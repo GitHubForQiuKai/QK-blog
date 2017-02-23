@@ -8,7 +8,7 @@ var base = {
     },
     output: {
         filename: "scripts/[name].js",
-        path: config.distDir + "/asserts/",
+        path: config.distDir + "/assets/",
     },
     module: {
         rules: [{
@@ -34,7 +34,20 @@ var base = {
             ]
         }, {
             test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-            use: [{ loader: 'file-loader' }]
+            use: [
+                { loader: 'file-loader' ,
+                options:{
+                    publicPath:'/assets/',
+                    name:'fonts/[name].[ext]'
+                }}
+            ]
+        }, {
+            test: /\.(png|jpg|gif)$/,
+            loader: 'file-loader',
+            options: {
+                publicPath: '/assets/',
+                name: 'images/[name].[hash:5].[ext]'
+            }
         }]
 
     }

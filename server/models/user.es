@@ -1,6 +1,6 @@
-const BlogConnection  = require('../util/db');
+const DBConnection  = require('../util/db');
 const userModel = '../schema/user.js';
-const User = BlogConnection.import(userModel);
+const User = DBConnection.import(userModel);
 
 const getUserById = async function(id){
 	const res = await User.findOne({
