@@ -11,8 +11,8 @@
 10. 测试框架使用karma和mocha
 11. 使用better-npm-run来使用yarn命令
 12. 包管理是基于yarn(据说比npm好)
-13. 然后就没有然后了
-####以后更加详细的教程会补上的。附上官方资料地址(大部分是中文的)
+13. 然后就没有然后了  
+###以后更加详细的教程会补上的。附上官方资料地址(大部分是中文的)
 + webpack2:https://webpack.js.org/guides/get-started/
 + gulp:http://www.gulpjs.com.cn/docs/getting-started/
 + sequelize:http://docs.sequelizejs.com/en/v3/docs/getting-started/
