@@ -6,7 +6,9 @@ import Axios from "axios";
 import VueRouter from "vue-router";
 import BlogList from "./components/index/BlogList.vue";
 import Login from "./components/Login.vue";
+import BlogShow from "./components/BlogShow.vue";
 import Index from "./components/index/Index.vue";
+import EditorBlog from "./components/EditorBlog.vue";
 import HeaderNav from "./components/common/HeaderNav.vue";
 Vue.prototype.$http = Axios;
 Vue.use(ElementUI);
@@ -21,6 +23,15 @@ const routes = [{
     {
         path: '/toLogin',
         component: Login
+    },
+    {
+        path: '/toBlogShow/:blog_id',
+        component: BlogShow,
+        name:'toBlogShow'
+    },
+    {
+        path: '/toEditorBlog/',
+        component: EditorBlog,
     }
 
 ];

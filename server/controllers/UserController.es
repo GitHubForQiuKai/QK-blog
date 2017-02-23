@@ -1,16 +1,16 @@
-const userModel  = require("../models/user");
+const UserModel  = require("../models/User");
 const jwt = require('koa-jwt');
 const IndexController = {
 	getUserById(){
 		return async (ctx,next)=>{
 			var id = ctx.params.id;
-			 ctx.body = await userModel.getUserById(id);
+			 ctx.body = await UserModel.getUserById(id);
 		}
 	},
 	postUserAuth(){
 		return async(ctx,next)=>{
 		const data = ctx.request.body;
-		const userInfo = await userModel.getUserByName(data.name);
+		const userInfo = await UserModel.getUserByName(data.name);
 		if(userInfo !=null){
 			if(userInfo.user_pwd != data.password){//密码错误
 				ctx.body = {

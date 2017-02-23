@@ -18,7 +18,7 @@
           		<el-button type="primary" v-on:click="toLogin"> 登 陆 </el-button>
           </el-col>
           <el-col :span="2"><el-button > 注 册 </el-button></el-col>
-          <el-col :span="2"><el-button icon="edit" type="warning">写文章</el-button></el-col>
+          <el-col :span="2"><el-button icon="edit" v-on:click="toEditorBlog" type="warning">写文章</el-button></el-col>
         </el-row>
     </div>
 </template>
@@ -29,7 +29,10 @@ export default {
   methods:{
   	toLogin(){
   		this.$router.push('/toLogin');
-  	}
+  	},
+    toEditorBlog(){
+      this.$router.push('/toEditorBlog');
+    }
   }
 }
 </script>

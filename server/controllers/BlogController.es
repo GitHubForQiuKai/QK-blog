@@ -1,17 +1,19 @@
-import BlogModel from "../models/blog";
+import AboutBlogModel from "../models/AboutBlog";
+import BlogModel from "../models/Blog";
 const BlogController = {
-	getBlog(){
-		return (ctx,next)=>{
-			ctx.body = "blog"
+	getBlogById(){
+		return async(ctx,next)=>{
+			const id = ctx.params.id;
+			ctx.body =  await BlogModel.getBlogById(id);
 		}
 	},
-	getBlogList(){
+	getAboutBlogList(){
 		return async(ctx,next)=>{
-			ctx.body =  await BlogModel.getBlogList();
+			ctx.body =  await AboutBlogModel.getBlogList();
 		}
 	}
 }
 module.exports = (router)=>{
-	return router.get("/blog/:id",BlogController.getBlog())
-				 .get("/blogAll",BlogController.getBlogList()).routes();
+	return router.get("/blog/:id",BlogController.getBlogById())
+				 .get("/blogAll",BlogController.getAboutBlogList()).routes();
 }	

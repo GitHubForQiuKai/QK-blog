@@ -1,8 +1,11 @@
 <template>
 <div id="index">
-<el-row>
+	<el-row class="content">
 		<el-col :span="12" :offset="3">
 			<carousel></carousel>
+		</el-col>
+		<el-col :span="5" :offset="1">
+			<ranking-blog></ranking-blog>
 		</el-col>
 	</el-row>
 	<el-row>
@@ -15,12 +18,15 @@
 </template>
 <script>
 	import BlogList from "./BlogList.vue";
+	import RankingBlog from "./RankingBlog.vue";
 	import Carousel from "./Carousel.vue";
 	export default {
 		name:"index",
-		components:{BlogList,Carousel}
+		components:{BlogList,Carousel,RankingBlog}
 	}
 </script>
 <style>
-	
+	.content {
+		margin-top: 10px;
+	}
 </style>

@@ -1,11 +1,15 @@
 import DBConnection from "../util/db";
-const blogModel =  "../schema/about_blog.js";
-const Blog = DBConnection.import(blogModel);
+const BlogModel =  "../schema/article.js";
+const Blog = DBConnection.import(BlogModel);
 
-const getBlogList = async ()=>{
-	const res = await Blog.findAll();
+const getBlogById = async (id)=>{
+	const res = await Blog.findOne({
+		where:{
+			article_id:id
+		}
+	});
 	return res;
 }
 export default {
-	getBlogList,
+	getBlogById,
 }
