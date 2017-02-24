@@ -14,18 +14,38 @@
               	 <el-button slot="append" icon="search"></el-button>
            	 </el-input>
           </el-col>
-          <el-col :span="2" :offset="1">
-          		<el-button type="primary" v-on:click="toLogin"> 登 陆 </el-button>
+          <el-col :span="4" :offset="1" v-show="logined">
+              <el-dropdown menu-align="start">
+                <img class="el-dropdown-link">
+                </img>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>我的主页</el-dropdown-item>
+                    <el-dropdown-item>我的博客</el-dropdown-item>
+                    <el-dropdown-item>我的收藏</el-dropdown-item>
+                    <el-dropdown-item>设置</el-dropdown-item>
+                    <el-dropdown-item>退出</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
           </el-col>
-          <el-col :span="2"><el-button > 注 册 </el-button></el-col>
+          <el-col :span="2" :offset="1" v-show="!logined">
+              <el-button type="primary" v-on:click="toLogin"> 登 陆 </el-button>
+          </el-col>
+          <el-col :span="2" v-show="!logined">
+              <el-button > 注 册 </el-button>
+          </el-col>
           <el-col :span="2"><el-button icon="edit" v-on:click="toEditorBlog" type="warning">写文章</el-button></el-col>
         </el-row>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   name:"header",
+   computed: mapState({
+    // 箭头函数可使代码更简练
+    logined: state => state.database.logined,
+  }),
   methods:{
   	toLogin(){
   		this.$router.push('/toLogin');
@@ -37,7 +57,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .header{
   border-bottom: 1px solid #E9ECEF
 }
@@ -52,5 +72,9 @@ export default {
 .menu{
 	margin-top: -10px !important;
   background: white !important;
+}
+img.el-dropdown-link{
+  height: 35px;
+  width: 35px;
 }
 </style>

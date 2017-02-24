@@ -1,4 +1,5 @@
 import Vue from "vue";
+import Store from "./store/store";
 import App from "./components/App.vue";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
@@ -41,6 +42,7 @@ const router = new VueRouter({
     routes
 });
 const app = new Vue({
+    Store,
 	// 此处严格写router相当于router:router
     router,
     render: h => h(App)

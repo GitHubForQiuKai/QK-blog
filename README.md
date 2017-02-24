@@ -28,3 +28,26 @@
 + better-npm-run:https://github.com/benoror/better-npm-run
 + md编辑器：https://github.com/NextStepWebs/simplemde-markdown-editor
 + yarn:https://yarnpkg.com/zh-Hans/
+
+
+###第一天（2017-2-21）
+* 今日完成：
+	1. 配置开发目录环境（包括koa2和vue）。
+	2. 数据库建表。
+
+###第二天（2017-2-22）
+* 今日完成：
+	1. 实现单点登陆。
+	2. header组件编写。
+	3. vue-router引入及配置首页和跳转规则。
+
+###第三天（2017-2-23）
+* 今日完成：
+    1. blog列表组件功能的编写。
+    2. blog详情组件功能的编写。  
+* 明日计划：
+    1. 实现blog增删改查功能。
+    2. 在写blog功能中加入md编辑器。
+    3. 优化blog列表和详情的界面。
+
+

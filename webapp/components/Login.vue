@@ -57,6 +57,9 @@ import md5 from 'md5';
             },2000);
           })
       }
+    },
+    beforeDestroy:function(){
+      this.$emit("changeLogin");
     }
 	}
 </script>
