@@ -5,8 +5,8 @@
           <el-col :span="8">
             <el-menu mode="horizontal" class="menu marginBottom10">
                 <el-menu-item index="1">文章</el-menu-item>
-                <el-menu-item index="2">分类</el-menu-item>
-                <el-menu-item index="3">标签</el-menu-item>
+                <el-menu-item index="2">热门</el-menu-item>
+                <el-menu-item index="3">About</el-menu-item>
             </el-menu>
           </el-col>
           <el-col :span="5">
@@ -42,9 +42,8 @@
 import { mapState } from 'vuex';
 export default {
   name:"header",
-   computed: mapState({
-    // 箭头函数可使代码更简练
-    logined: state => state.database.logined,
+   computed:mapState({
+    logined:state=>state.logined
   }),
   methods:{
   	toLogin(){
@@ -59,7 +58,9 @@ export default {
 
 <style scoped>
 .header{
-  border-bottom: 1px solid #E9ECEF
+  padding-top:12px;
+  border-bottom: 1px solid #E9ECEF;
+  background: white !important;
 }
 .log{
   font-size: 30px;

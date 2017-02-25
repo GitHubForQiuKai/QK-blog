@@ -51,15 +51,14 @@ import md5 from 'md5';
             },2000);
           }
         },(err)=>{//请求错误
+          console.log(this);
+          this.$router.go(0);
               this.$message({
               type: 'error',
               message: '请求错误,稍后重试'
             },2000);
           })
       }
-    },
-    beforeDestroy:function(){
-      this.$emit("changeLogin");
     }
 	}
 </script>

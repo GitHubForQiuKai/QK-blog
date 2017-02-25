@@ -1,5 +1,5 @@
 import Vue from "vue";
-import Store from "./store/store";
+import store from "./store/store";
 import App from "./components/App.vue";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
@@ -11,6 +11,7 @@ import BlogShow from "./components/BlogShow.vue";
 import Index from "./components/index/Index.vue";
 import EditorBlog from "./components/EditorBlog.vue";
 import HeaderNav from "./components/common/HeaderNav.vue";
+import App from "./components/App.vue";
 Vue.prototype.$http = Axios;
 Vue.use(ElementUI);
 Vue.use(VueRouter);
@@ -33,6 +34,10 @@ const routes = [{
     {
         path: '/toEditorBlog/',
         component: EditorBlog,
+    },
+    {
+        path: '/toapp',
+        component: App,
     }
 
 ];
@@ -42,8 +47,8 @@ const router = new VueRouter({
     routes
 });
 const app = new Vue({
-    Store,
 	// 此处严格写router相当于router:router
     router,
+    store,
     render: h => h(App)
 }).$mount('#gogo');
