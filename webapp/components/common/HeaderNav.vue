@@ -39,12 +39,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 export default {
   name:"header",
-   computed:mapState({
-    logined:state=>state.logined
-  }),
+  data(){
+    return {
+      logined:false
+    }
+  },
   methods:{
   	toLogin(){
   		this.$router.push('/toLogin');
@@ -52,6 +53,9 @@ export default {
     toEditorBlog(){
       this.$router.push('/toEditorBlog');
     }
+  },
+  created:function(){
+    this.logined  = sessionStorage.getItem('qiukai-token')!==null;
   }
 }
 </script>

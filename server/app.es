@@ -13,16 +13,18 @@ const app = new  Koa();
 const router = new Router();
 
 app.use(bodyParser());//post请求解析器
-//设置html
+// 设置html
 app.use(views(config.viewDir),{
 	map:{
 		html:"underscore"
 	}
 });
-// app.use(convert(historyApiFallback()));
-errorHandler.error(app); //处理页面错误的处理句柄
+// errorHandler.error(app); //处理页面错误的处理句柄
 // app.use(logger);
 InitController(app,router);//初始化路由
+app.use(convert(historyApiFallback({
+  index: 'views/index.html'
+})));
 app.use(server(config.staticDir));//静态资源文件
 app.listen(config.port,()=>{
 	console.log("server running at"+config.port);

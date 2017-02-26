@@ -310,3 +310,10 @@ CREATE TABLE phone_message (
  user_id mediumint(8) NOT NULL COMMENT '用户ID',
  PRIMARY KEY (phone_id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+
+
+-- 插入admin用户
+INSERT INTO `user` (`user_id`, `group_id`, `user_name`, `user_pwd`, `user_phone`, `user_sex`, `user_qq`, `user_email`, `user_address`, `user_mark`, `user_rank_id`, `user_last_login_ip`, `user_birthday`, `user_description`, `user_image_url`, `user_school`, `user_register_time`, `user_register_ip`, `user_last_update_time`, `user_weibo`, `user_blood_type`, `user_says`, `user_lock`, `user_freeze`, `user_power`)
+VALUES
+	(1, 0, 'admin', '202cb962ac59075b964b07152d234b70', 0, '', 0, '', '', 0, 0, '', 0, '', '', '', 0, '', 0, '', '', '', 0, 0, '');
+

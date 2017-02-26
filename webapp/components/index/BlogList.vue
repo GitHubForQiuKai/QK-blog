@@ -12,23 +12,21 @@
 			</div>
 			<div>
 				<el-col :span="18">
-					<router-link 
+					<router-link tag="p"
 					:to="{ name: 'toBlogShow', params: { blog_id: item.blog_id }}"
 					class="blog-list-title">
 						{{item.blog_title}}
-						将 Vue-cli 改造成支持多页面的 history 模式
 					</router-link>
-					<p>
+					<p class="blog_description">
 						{{item.blog_description}}
-						自从 Vue2 出正式版后, 就开始了 SSR 之旅, 不过之前用的都是虚拟主机, 部署不了 SSR, 所以也只是在本地写着玩, 双 11 的时候, 买了个某云主机, 正式开始了 SSR 之旅, 然后过程并不顺利, 部署, 运行都没问题, 但是发现内存泄漏严重, 1核1G内存的主机根本负担不了, 没什么访问量的情况下, 几个小时的时间, 1G 内存就用光, 明显有很严重的内存泄漏, 在本地环境压测, rps(每秒请求数) 无限接近于 1, 在云服务器更是压测都完成不了, 于是开始了优化之旅 # 1. 内
 					</p>
 				</el-col>
 				<el-col :span="6" class="img">
 					博客缩略图
 				</el-col>
 			</div>
+			<praise :praiseObj="praise"></praise>
 		</el-card>
-		<praise :praiseObj="praise"></praise>
 	</div>
 </template>
 <script>
@@ -73,6 +71,11 @@ import Praise from "../Praise.vue";
 	}
 </script>
 <style scoped>
+	.blog_title{
+		font-size: 17px;
+	    font-weight: 700;
+	    color: #3aced5;
+	}
 	.author {
 		width: 25px;
 		height: 25px;
@@ -84,24 +87,30 @@ import Praise from "../Praise.vue";
 		background: #d3dce6;
 	}
 	.blog-row {
+		margin-bottom: 15px;
 		letter-spacing: .4px;
-		margin-top: 10px;
 		border-bottom:1px solid #E9ECEF; 
 	}
 	.blog-list-title{
-		font-size: 18px;
+		font-size: 17px;
+   		font-weight: 700;
+    	color: #3aced5;
 	}
 	.blog-list-title:hover{
 		color:blue;
 		cursor:pointer;
 	}	
-	  .clearfix:before,
-  .clearfix:after {
-      display: table;
-      content: "";
+	.clearfix:before,
+  	.clearfix:after {
+    	display: table;
+    	content: "";
+  	}
+  	.clearfix:after {
+    	clear: both
+  	}
+  	.blog_description{
+  		font-size: 15px;
+  		color: #3e4545;
+  		font-family: -apple-system-font,Helvetica Neue,Tahoma,PingFang SC,lantinghei sc,Microsoft Yahei,sans-serif;
   }
-  .clearfix:after {
-      clear: both
-  }
-
 </style>

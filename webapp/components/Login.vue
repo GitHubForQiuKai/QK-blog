@@ -40,6 +40,7 @@ import md5 from 'md5';
             //将token存入sessionStorage
             sessionStorage.setItem("qiukai-token",res.data.token);
             this.$router.push('/toBlogList');
+            this.$router.go(0);
             this.$message({
               type: 'success',
               message: '登陆成功'
@@ -52,7 +53,6 @@ import md5 from 'md5';
           }
         },(err)=>{//请求错误
           console.log(this);
-          this.$router.go(0);
               this.$message({
               type: 'error',
               message: '请求错误,稍后重试'
