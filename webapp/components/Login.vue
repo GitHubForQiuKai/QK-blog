@@ -62,7 +62,7 @@ import md5 from 'md5';
     }
 	}
 </script>
-<style>
+<style scoped>
 	.el-row.content{
     padding:16px
   }

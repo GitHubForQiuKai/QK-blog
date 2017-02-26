@@ -1,10 +1,10 @@
 <template>
 	<div id="header">
         <el-row class="header" :gutter="10" type="flex" justify="center">
-          <el-col :span="2" class="log">求開</el-col>
+          <el-col :span="2" class="log" v-on:ckick="toIndex">求開</el-col>
           <el-col :span="8">
             <el-menu mode="horizontal" class="menu marginBottom10">
-                <el-menu-item index="1">文章</el-menu-item>
+                <el-menu-item index="1" v-on:ckick="toIndex">首页</el-menu-item>
                 <el-menu-item index="2">热门</el-menu-item>
                 <el-menu-item index="3">About</el-menu-item>
             </el-menu>
@@ -52,6 +52,9 @@ export default {
   	},
     toEditorBlog(){
       this.$router.push('/toEditorBlog');
+    },
+    toIndex(){
+      this.$router.push('/');
     }
   },
   created:function(){
