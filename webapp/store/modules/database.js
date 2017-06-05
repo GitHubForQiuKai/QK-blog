@@ -4,7 +4,7 @@ const state = {
 
 const mutations = {
 	changeLogin(state){
-		state.logined = !logined;
+		state.logined = ! state.logined;
 	}
 }
 export default {

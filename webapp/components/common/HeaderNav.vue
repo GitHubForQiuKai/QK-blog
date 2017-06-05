@@ -27,10 +27,10 @@
                 </el-dropdown-menu>
               </el-dropdown>
           </el-col>
-          <el-col :span="2" :offset="1" v-show="!logined">
+          <el-col :span="2" :offset="1" v-show="!(this.$store.state.database.logined)">
               <el-button type="primary" v-on:click="toLogin"> 登 陆 </el-button>
           </el-col>
-          <el-col :span="2" v-show="!logined">
+          <el-col :span="2" v-show="!(logined)">
               <el-button > 注 册 </el-button>
           </el-col>
           <el-col :span="2"><el-button icon="edit" v-on:click="toEditorBlog" type="warning">写文章</el-button></el-col>
@@ -41,11 +41,11 @@
 <script>
 export default {
   name:"header",
-  data(){
-    return {
-      logined:false
-    }
-  },
+  computed: {
+    logined () {
+      return this.$store.state.database.logined
+  }
+},
   methods:{
   	toLogin(){
   		this.$router.push('/toLogin');
